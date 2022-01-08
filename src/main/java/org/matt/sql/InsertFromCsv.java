@@ -4,8 +4,6 @@ import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
 import com.opencsv.*;
 import com.opencsv.exceptions.CsvValidationException;
-import javafx.collections.ObservableList;
-import org.matt.dataBeans.MovieData;
 
 import java.io.*;
 import java.sql.Connection;
@@ -16,6 +14,14 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class InsertFromCsv {
+
+    public static String movieCsv = "src/main/resources/org/matt/tmdb_5000_movies_copy.csv";
+    public static String creditsCsv = "src/main/resources/org/matt/tmdb_5000_credits_copy.csv";
+
+    public static void main(String[] args) {
+        moviesToDb();
+        creditsToDb();
+    }
 
     public static void moviesToDb() {
         String sql_genre = "insert ignore into Genre (genre_id, genre) VALUES (?, ?)";
@@ -36,7 +42,7 @@ public class InsertFromCsv {
             movies_stmt = conn.prepareStatement(sql_movies);
             autoCommit = conn.getAutoCommit();
             conn.setAutoCommit(false);
-            br = new BufferedReader(new FileReader("src/main/resources/org/matt/tmdb_5000_movies_copy.csv"));
+            br = new BufferedReader(new FileReader(movieCsv));
             CSVParser parser = new CSVParserBuilder().withSeparator('\t').build();
             CSVReader csvReader = new CSVReaderBuilder(br).withSkipLines(1).withCSVParser(parser).build();
             String[] line;
@@ -130,7 +136,7 @@ public class InsertFromCsv {
             movieCast_stmt = conn.prepareStatement("insert ignore into MoviesDB.Movie_production (movie_id, cast_id) values (?,?)");
             autoCommit = conn.getAutoCommit();
             conn.setAutoCommit(false);
-            br = new BufferedReader(new FileReader("src/main/resources/org/matt/tmdb_5000_credits_copy.csv"));
+            br = new BufferedReader(new FileReader(creditsCsv));
             RFC4180Parser parser = new RFC4180ParserBuilder().withSeparator('\t').build();
             CSVReader csvReader = new CSVReaderBuilder(br).withSkipLines(1).withCSVParser(parser).build();
             List<String[]> list;

@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+import static org.matt.sql.InsertFromCsv.*;
+
+
 /**
  * JavaFX App
  */
@@ -23,8 +26,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("logIn"));
-
+        scene = new Scene(loadFXML());
         scene.getStylesheets().add(getCss());
         stage.setTitle("MovieDB Manager");
         stage.setResizable(false);
@@ -32,9 +34,7 @@ public class App extends Application {
         stage.show();
     }
 
-    public static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
+
 
     public static String getCss() {
         return Objects.requireNonNull(App.class.getResource("dark-theme.css")).toExternalForm();
@@ -44,8 +44,8 @@ public class App extends Application {
         return instance;
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+    private static Parent loadFXML() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("logIn" + ".fxml"));
         return fxmlLoader.load();
     }
 
