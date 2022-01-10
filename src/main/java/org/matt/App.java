@@ -9,8 +9,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-import static org.matt.sql.InsertFromCsv.*;
-
 
 /**
  * JavaFX App
