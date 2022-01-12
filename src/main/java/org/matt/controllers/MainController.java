@@ -44,8 +44,6 @@ public class MainController implements Initializable {
     @FXML
     private MenuItem details;
     @FXML
-    private MenuItem add;
-    @FXML
     private TableView<MovieData> movieTable;
     @FXML
     private TableColumn<MovieData, String> title;
@@ -64,17 +62,8 @@ public class MainController implements Initializable {
     @FXML
     private Button logoutButton;
     @FXML
-    private MenuBar menuBar;
-    @FXML
     private Menu userMenu;
-    @FXML
-    private MenuItem watchlistMenuButton;
-    @FXML
-    private MenuItem otherUsersButton;
-    @FXML
-    private MenuItem ratingsButton;
-    @FXML
-    private MenuItem aboutButton;
+
 
     private ObservableList<MovieData> data;
     private FilteredList<MovieData> filteredData;
@@ -258,10 +247,6 @@ public class MainController implements Initializable {
     @FXML
     private void openWatchlistScene(ActionEvent actionEvent) {
         SceneChanger.openNewScene(Views.WATCHLIST);
-    }
-
-    @FXML
-    private void OpenUsersScene(ActionEvent actionEvent) {
     }
 
     @FXML

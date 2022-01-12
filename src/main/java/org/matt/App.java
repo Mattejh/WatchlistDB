@@ -32,8 +32,6 @@ public class App extends Application {
         stage.show();
     }
 
-
-
     public static String getCss() {
         return Objects.requireNonNull(App.class.getResource("dark-theme.css")).toExternalForm();
     }

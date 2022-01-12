@@ -21,8 +21,6 @@
           <Menu fx:id="userMenu" mnemonicParsing="false">
             <items>
               <MenuItem fx:id="watchlistMenuButton" mnemonicParsing="false" onAction="#openWatchlistScene" text="Watchlist" />
-                  <MenuItem fx:id="ratingsButton" mnemonicParsing="false" text="Your ratings..." />
-                  <MenuItem fx:id="otherUsersButton" mnemonicParsing="false" onAction="#OpenUsersScene" text="Other Users..." />
                   <MenuItem fx:id="aboutButton" mnemonicParsing="false" onAction="#aboutPopup" text="About" />
             </items>
           </Menu>

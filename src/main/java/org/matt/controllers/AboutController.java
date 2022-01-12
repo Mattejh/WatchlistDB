@@ -22,7 +22,7 @@ public class AboutController implements Initializable {
     private Hyperlink gitLink;
 
 
-    private final String githubUrl = "https://www.youtube.com/watch?v=tD_5COQCc1Q&ab_channel=Jixo_Tv";
+    private final String githubUrl = "https://github.com/Mattejh/WatchlistDB";
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

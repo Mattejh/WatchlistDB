@@ -21,6 +21,7 @@ public class InsertFromCsv {
     public static void main(String[] args) {
         moviesToDb();
         creditsToDb();
+        System.out.println("Successfully added movie data to DB");
     }
 
     public static void moviesToDb() {
